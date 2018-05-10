@@ -1,4 +1,4 @@
-Welcome to the open sourced Creative Elements app.  Feel free to clone, code and contribute!
+Welcome to the (quasi) open sourced Creative Elements app.  Feel free to clone, code and contribute!
 
 This application has high aspirations.  On the most basic level, this data product will allow users to input different creative related
 criteria to estimate the lift on brand KPIs.
