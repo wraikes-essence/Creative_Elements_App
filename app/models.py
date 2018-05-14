@@ -7,7 +7,7 @@ def pull_models():
 	'''
 	model_aware =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_aware.pkl') 
 
-	return model_aware
+	return [model_aware]
 
 def default_prediction():
 	'''
