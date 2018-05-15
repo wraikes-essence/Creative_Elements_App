@@ -11,29 +11,29 @@ def _response(df):
     return y
 
 
-# def _video_length(df, param):
-#     if param == 'fifteen':
-#         df['s15'] = 1
-#     elif param == 'thirty':
-#         df['s30'] = 1
+def _video_length(df, param):
+    if param == 'fifteen':
+        df['s15'] = 1
+    elif param == 'thirty':
+        df['s30'] = 1
 
-#     return df
-
-
-# def _platform(df, param):
-#     if param == 'desktop':
-#         df['desktop'] = 1
-
-#     return df
+    return df
 
 
-# def _real_world(df, param):
-#     if param == 'real':
-#         df['Real_World_real world'] = 1
-#     elif param == 'anim':
-#         df['Real_World_animated'] = 1
+def _platform(df, param):
+    if param == 'desktop':
+        df['desktop'] = 1
 
-#     return df
+    return df
+
+
+def _real_world(df, param):
+    if param == 'real':
+        df['Real_World_real world'] = 1
+    elif param == 'both':
+        df['Real_World_both'] = 1
+
+    return df
 
 
 # def _music(df, param):
