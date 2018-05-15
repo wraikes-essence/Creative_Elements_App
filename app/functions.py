@@ -11,18 +11,57 @@ def _response(df):
     return y
 
 
-def _video_length(df, param):
-    if param == 'fifteen':
-        df['s15'] = 1
-    elif param == 'thirty':
-        df['s30'] = 1
+def _publisher(df, param):
+    if param == 'facebook':
+        df['Publisher_Facebook'] = 1
+    elif param == 'insta':
+        df['Publisher_Instagram'] = 1
+    elif param == 'twitter':
+        df['Publisher_Twitter'] = 1
+    else:
+        df['Publisher_YouTube'] = 1
+
+    return df
+
+
+def _product(df, param):
+    _dict = {
+        'achat': 'Product_Achat',
+        'android': 'Product_Android OS',
+    }
+
+    df[_dict[param]] = 1
+
+    return df
+
+
+def _region(df, param):
+    if param == 'apac':
+        df['Region_APAC'] = 1
+    elif param == 'emea':
+        df['Region_EMEA'] = 1
+    else:
+        df['Region_North_America'] = 1
 
     return df
 
 
 def _platform(df, param):
     if param == 'desktop':
-        df['desktop'] = 1
+        df['Platform_Desktop'] = 1
+    else:
+        df['Platform_Mobile'] = 1
+
+    return df
+
+
+def _video_length(df, param):
+    if param == 'fifteen':
+        df['Video_Length_:15'] = 1
+    elif param == 'thirty':
+        df['Video_Length_:30'] = 1
+    else:
+        df['Video_Length_:06'] = 1
 
     return df
 
@@ -32,106 +71,174 @@ def _real_world(df, param):
         df['Real_World_real world'] = 1
     elif param == 'both':
         df['Real_World_both'] = 1
+    else:
+        df['Real_World_animated'] = 1
 
     return df
 
 
-# def _music(df, param):
-#     if param == 'no':
-#         df['Music_no'] = 1
-#     else:
-#         df['Music_yes'] = 1
+def _story(df, param):
+    if param == 'no':
+        df['Story_Driven_no'] = 1
+    else:
+        df['Story_Driven_yes'] = 1
 
-#     return df
-
-
-# def _voiceover(df, param):
-#     if param == 'no':
-#         df['Voiceover_no'] = 1
-#     else:
-#         df['Voiceover_yes'] = 1
-
-#     return df
+    return df
 
 
-# def _event(df, param):
-#     if param == 'no':
-#         df['Event_no'] = 1
-#     else:
-#         df['Event_yes'] = 1
+def _event(df, param):
+    if param == 'no':
+        df['Event_no'] = 1
+    else:
+        df['Event_yes'] = 1
 
-#     return df
-
-
-# def _story_driven(df, param):
-#     if param == 'no':
-#         df['Story_Driven_no'] = 1
-#     else:
-#         df['Story_Driven_yes'] = 1
-
-#     return df
+    return df
 
 
-# def _pop_culture(df, param):
-#     if param == 'no':
-#         df['Pop_Culture_no'] = 1
-#     else:
-#         df['Pop_Culture_yes'] = 1
+def _google_upfront(df, param):
+    if param == 'no':
+        df['Google_Logo_Upfront_Recode_Zero'] = 1
+    else:
+        df['Google_Logo_Upfront_Recode_1+'] = 1
 
-#     return df
-
-
-# def _demo(df, param):
-#     if param == 'no':
-#         df['Demo_no'] = 1
-#     else:
-#         df['Demo_yes'] = 1
-
-#     return df
+    return df
 
 
-# def _front_card(df, param):
-#     if param == 'no':
-#         df['Front_Card_no'] = 1
-#     else:
-#         df['Front_Card_yes'] = 1
+def _product_upfront(df, param):
+    if param == 'no':
+        df['Product_Logo_Upfront_Recode_Zero'] = 1
+    else:
+        df['Product_Logo_Upfront_Recode_1+'] = 1
 
-#     return df
-
-
-# def _text_end_card(df, param):
-#     if param == 'no':
-#         df['Text_on_End_Card_no'] = 1
-#     else:
-#         df['Text_on_End_Card_yes'] = 1
-
-#     return df
+    return df
 
 
-# def _google_logo_50(df, param):
-#     if param == 'no':
-#         df['Google_Logo_50_no'] = 1
-#     else:
-#         df['Google_Logo_50_yes'] = 1
+def _audio_upfront(df, param):
+    if param == 'no':
+        df['Audio_Mention_Upfront_Recode_Zero'] = 1
+    else:
+        df['Audio_Mention_Upfront_Recode_1+'] = 1
 
-#     return df
-
-
-# def _product_logo_50(df, param):
-#     if param == 'no':
-#         df['Product_Logo_50_no'] = 1
-#     else:
-#         df['Product_Logo_50_yes'] = 1
-
-#     return df
+    return df
 
 
-# def _product_shot_50(df, param):
-#     if param == 'no':
-#         df['Product_Shot_50_no'] = 1
-#     else:
-#         df['Product_Shot_50_yes'] = 1
+def _no_of_visuals(df, param):
+    if param == 'no':
+        df['No_of_Visuals_Recode_Zero'] = 1
+    else:
+        df['No_of_Visuals_Recode_One+'] = 1
 
-#     return df
+    return df
+
+
+def _google_logo_50(df, param):
+    if param == 'no':
+        df['Google_Logo_50_no'] = 1
+    else:
+        df['Google_Logo_50_yes'] = 1
+
+    return df
+
+
+def _product_logo_50(df, param):
+    if param == 'no':
+        df['Product_Logo_50_no'] = 1
+    else:
+        df['Product_Logo_50_yes'] = 1
+
+    return df
+
+
+def _product_shot_50(df, param):
+    if param == 'no':
+        df['Product_Shot_50_no'] = 1
+    else:
+        df['Product_Shot_50_yes'] = 1
+
+    return df
+
+
+def _text_end_card(df, param):
+    if param == 'no':
+        df['Text_on_End_Card_no'] = 1
+    else:
+        df['Text_on_End_Card_yes'] = 1
+
+    return df
+
+
+def _demo(df, param):
+    if param == 'no':
+        df['Demo_no'] = 1
+    else:
+        df['Demo_yes'] = 1
+
+    return df
+
+
+def _front(df, param):
+    if param == 'no':
+        df['Front_Card_no'] = 1
+    else:
+        df['Front_Card_yes'] = 1
+
+    return df
+
+
+def _pop_culture(df, param):
+    if param == 'no':
+        df['Pop_Culture_no'] = 1
+    else:
+        df['Pop_Culture_yes'] = 1
+
+    return df
+
+
+def _music(df, param):
+    if param == 'no':
+        df['Music_no'] = 1
+    else:
+        df['Music_yes'] = 1
+
+    return df
+
+
+def _voice(df, param):
+    if param == 'no':
+        df['Voiceover_no'] = 1
+    else:
+        df['Voiceover_yes'] = 1
+
+    return df
+
+
+def _product_msgs(df, param):
+    if param == 'zero':
+        df['No_Product_Msgs_Recode_Zero'] = 1
+    elif param == 'one':
+        df['No_Product_Msgs_Recode_One'] = 1
+    else:
+        df['No_Product_Msgs_Recode_Two+'] = 1
+
+    return df
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
