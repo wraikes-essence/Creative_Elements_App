@@ -1,13 +1,17 @@
 from sklearn.externals import joblib
 import pandas as pd
 
+
 def pull_models():
 	'''
 	Load the pickled models for use.
 	'''
 	model_aware =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_aware.pkl') 
+	model_cons =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_cons.pkl') 
+	model_purch =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_purch.pkl') 
 
-	return [model_aware]
+	return [model_aware, model_cons, model_purch]
+
 
 def default_prediction():
 	'''
@@ -48,7 +52,6 @@ def default_prediction():
 	    'Product_Pixelbook': [0], 
 	    'Product_Project Fi': [0], 
 	    'Product_Watercooler BCE': [0], 
-	    'Product_YouTube': [0], 
 	    'Product_YouTube Music': [0], 
 	    'Product_YouTube Music/Emerging Artists': [0],  
 	    'Product_YouTube Red': [0], 
