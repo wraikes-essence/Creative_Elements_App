@@ -15,12 +15,6 @@ def default_prediction():
 	'''
 	return pd.DataFrame({
 
-		#Publisher
-		'Publisher_Facebook': [0],
-		'Publisher_Instagram': [0],
-		'Publisher_Twitter': [0],
-		'Publisher_YouTube': [0],
-
 		#Product
 	    'Product_Achat': [0], 
 	    'Product_Android OS': [0], 

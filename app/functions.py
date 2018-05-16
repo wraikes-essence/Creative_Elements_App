@@ -11,19 +11,6 @@ def _response(df):
     return y
 
 
-def _publisher(df, param):
-    if param == 'facebook':
-        df['Publisher_Facebook'] = 1
-    elif param == 'insta':
-        df['Publisher_Instagram'] = 1
-    elif param == 'twitter':
-        df['Publisher_Twitter'] = 1
-    else:
-        df['Publisher_YouTube'] = 1
-
-    return df
-
-
 def _product(df, param):
     _dict = {
         'achat': 'Product_Achat',

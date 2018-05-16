@@ -35,19 +35,6 @@ app.layout = html.Div(children=[
     ]),
 
 
-    html.Label('Publisher'),
-    dcc.Dropdown(
-        id='publisher',
-        options=[
-            {'label': 'Facebook', 'value': 'facebook'},
-            {'label': 'Instagram', 'value': 'insta'},
-            {'label': 'Twitter', 'value': 'twitter'},
-            {'label': 'Youtube', 'value': 'youtube'}
-        ],
-        value='youtube'
-    ),
-
-
     html.Label('Product'),
     dcc.Dropdown(
         id='product',
@@ -105,35 +92,6 @@ app.layout = html.Div(children=[
         value='real'
     ),
 
-    html.Label('Presence of Music'),
-    dcc.Dropdown(
-        id='music',
-        options=[
-            {'label': 'Yes', 'value': 'yes'},
-            {'label': 'No', 'value': 'no'}
-        ],
-        value='no'
-    ),
-
-    html.Label('Presence of Voiceover'),
-    dcc.Dropdown(
-        id='voice',
-        options=[
-            {'label': 'Yes', 'value': 'yes'},
-            {'label': 'No', 'value': 'no'}
-        ],
-        value='no'
-    ),
-
-    html.Label('Event or Holiday Themed'),
-    dcc.Dropdown(
-        id='event',
-        options=[
-            {'label': 'Yes', 'value': 'yes'},
-            {'label': 'No', 'value': 'no'}
-        ],
-        value='no'
-    ),
 
     html.Label('Story Driven'),
     dcc.Dropdown(
@@ -145,19 +103,10 @@ app.layout = html.Div(children=[
         value='no'
     ),
 
-    html.Label('Pop Culture Reference'),
-    dcc.Dropdown(
-        id='pop_culture',
-        options=[
-            {'label': 'Yes', 'value': 'yes'},
-            {'label': 'No', 'value': 'no'}
-        ],
-        value='no'
-    ),  
 
-    html.Label('Demo or Functionality Shown'),
+    html.Label('Event or Holiday Themed'),
     dcc.Dropdown(
-        id='demo',
+        id='event',
         options=[
             {'label': 'Yes', 'value': 'yes'},
             {'label': 'No', 'value': 'no'}
@@ -165,9 +114,10 @@ app.layout = html.Div(children=[
         value='no'
     ),
 
-    html.Label('Presence of Front Card'),
+
+    html.Label('Upfront Google Logo'),
     dcc.Dropdown(
-        id='front',
+        id='google_upfront',
         options=[
             {'label': 'Yes', 'value': 'yes'},
             {'label': 'No', 'value': 'no'}
@@ -175,15 +125,39 @@ app.layout = html.Div(children=[
         value='no'
     ),
 
-    html.Label('Text on End Card'),
+
+    html.Label('Upfront Product Logo'),
     dcc.Dropdown(
-        id='text_end_card',
+        id='product_upfront',
         options=[
             {'label': 'Yes', 'value': 'yes'},
             {'label': 'No', 'value': 'no'}
         ],
         value='no'
     ),
+
+
+    html.Label('Upfront Audio Mention'),
+    dcc.Dropdown(
+        id='audio_upfront',
+        options=[
+            {'label': 'Yes', 'value': 'yes'},
+            {'label': 'No', 'value': 'no'}
+        ],
+        value='no'
+    ),
+
+
+    html.Label('non-Google or Product Logos'),
+    dcc.Dropdown(
+        id='no_of_visuals',
+        options=[
+            {'label': 'Yes', 'value': 'yes'},
+            {'label': 'No', 'value': 'no'}
+        ],
+        value='no'
+    ),
+
 
     html.Label('Google Logo: 50% Presence'),
     dcc.Dropdown(
@@ -195,6 +169,7 @@ app.layout = html.Div(children=[
         value='no'
     ),
 
+
     html.Label('Product Logo: 50% Presence'),
     dcc.Dropdown(
         id='product_logo_50',
@@ -205,6 +180,7 @@ app.layout = html.Div(children=[
         value='no'
     ),
 
+
     html.Label('Product Shot: 50% Presence'),
     dcc.Dropdown(
         id='product_shot_50',
@@ -213,9 +189,85 @@ app.layout = html.Div(children=[
             {'label': 'No', 'value': 'no'}
         ],
         value='no'
+    ),
+
+
+    html.Label('Text on End Card'),
+    dcc.Dropdown(
+        id='text_end_card',
+        options=[
+            {'label': 'Yes', 'value': 'yes'},
+            {'label': 'No', 'value': 'no'}
+        ],
+        value='no'
+    ),
+
+
+    html.Label('Demo or Functionality Shown'),
+    dcc.Dropdown(
+        id='demo',
+        options=[
+            {'label': 'Yes', 'value': 'yes'},
+            {'label': 'No', 'value': 'no'}
+        ],
+        value='no'
+    ),
+
+
+    html.Label('Presence of Front Card'),
+    dcc.Dropdown(
+        id='front',
+        options=[
+            {'label': 'Yes', 'value': 'yes'},
+            {'label': 'No', 'value': 'no'}
+        ],
+        value='no'
+    ),
+
+
+    html.Label('Pop Culture Reference'),
+    dcc.Dropdown(
+        id='pop_culture',
+        options=[
+            {'label': 'Yes', 'value': 'yes'},
+            {'label': 'No', 'value': 'no'}
+        ],
+        value='no'
+    ),  
+
+
+    html.Label('Presence of Music'),
+    dcc.Dropdown(
+        id='music',
+        options=[
+            {'label': 'Yes', 'value': 'yes'},
+            {'label': 'No', 'value': 'no'}
+        ],
+        value='no'
+    ),
+
+
+    html.Label('Presence of Voiceover'),
+    dcc.Dropdown(
+        id='voice',
+        options=[
+            {'label': 'Yes', 'value': 'yes'},
+            {'label': 'No', 'value': 'no'}
+        ],
+        value='no'
+    ),
+
+
+    html.Label('No. of Product Messages'),
+    dcc.Dropdown(
+        id='product_msgs',
+        options=[
+            {'label': 'Zero', 'value': 'zero'},
+            {'label': 'One', 'value': 'one'},
+            {'label': 'Two+', 'value': 'two'}
+        ],
+        value='zero'
     )
-
-
 ])
 
 
