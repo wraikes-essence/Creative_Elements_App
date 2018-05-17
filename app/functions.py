@@ -3,9 +3,9 @@ from models import pull_models
 
 
 def _response(df, models):
-    y = [round(x.predict(df)[0] * 100.0, 2) for x in models]
+    ##predictions = predict_proba(df)
 
-    #y = [str(round(x*100, 1)) + '%' for x in y]
+    y = [round(x.predict_proba(df)[0][1] * 100.0, 2) for x in models]
 
     return y
 
@@ -67,7 +67,7 @@ def _region(df, param):
 
 
 def _platform(df, param):
-    if param == 'desktop':
+    if param == 'desktop': 
         df['Platform_Desktop'] = 1
     elif param == 'mobile':
         df['Platform_Mobile'] = 1

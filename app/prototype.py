@@ -392,8 +392,3 @@ def update_graph(product, region, platform,
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-
-
-    #[#dash.dependencies.Input('video_length', 'value'),
-
-#])
