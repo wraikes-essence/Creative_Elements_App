@@ -6,9 +6,9 @@ def pull_models():
 	'''
 	Load the pickled models for use.
 	'''
-	model_aware =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_aware.pkl') 
-	model_cons =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_cons.pkl') 
-	model_purch =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_purch.pkl') 
+	model_aware =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_aware_resp.pkl') 
+	model_cons =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_cons_resp.pkl') 
+	model_purch =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_purch_resp.pkl') 
 
 	return [model_aware, model_cons, model_purch]
 
