@@ -371,16 +371,28 @@ def update_graph(product, region, platform,
     y = _response(X_pred, models)
     
     return {
-            'data': [go.Bar(
-                x=['Awareness', 'Consideration', 'Purchase'],
-                y=y,
-                text=y,
-                textposition='auto',
-                name='Predictions',
-                marker=dict(
-                    color='rgb(58,200,225)'
+            'data': [
+                go.Bar(
+                    x=['Awareness', 'Consideration', 'Purchase'],
+                    y=y[0],
+                    text=y[0],
+                    textposition='auto',
+                    name='Predictions',
+                    marker=dict(
+                        color='rgb(58,200,225)'
+                    )
+                ), 
+                go.Bar(
+                    x=['Awareness', 'Consideration', 'Purchase'],
+                    y=y[1],
+                    text=y[1],
+                    textposition='auto',
+                    name='Predictions',
+                    marker=dict(
+                        color='rgb(225,200,225)'
+                    )
                 )
-            )],
+            ],
             'layout': go.Layout(
                 title= 'Creative Analysis: Rate Predictions',
                 showlegend=False,

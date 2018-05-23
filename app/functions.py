@@ -5,9 +5,10 @@ from models import pull_models
 def _response(df, models):
     ##predictions = predict_proba(df)
 
-    y = [round(x.predict(df)[0] * 100.0, 2) for x in models]
+    y_rate = [round(x.predict(df)[0] * 100.0, 2) for x in models[:3]]
+    y_base = [round(x.predict(df)[0] * 100.0, 2) for x in models[3:]]
 
-    return y
+    return [y_rate, y_base]
 
 
 def _product(df, param):
