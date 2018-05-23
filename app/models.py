@@ -6,11 +6,17 @@ def pull_models():
 	'''
 	Load the pickled models for use.
 	'''
-	model_aware =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_aware_resp.pkl') 
-	model_cons =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_cons_resp.pkl') 
-	model_purch =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_purch_resp.pkl') 
+	#KPI Rates
+	aware_rate =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_aware_creative_rate.pkl') 
+	cons_rate =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_cons_creative_rate.pkl') 
+	purch_rate =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_purch_creative_rate.pkl')
 
-	return [model_aware, model_cons, model_purch]
+	#KPI Baselines
+	aware_base =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_aware_creative_base.pkl') 
+	cons_base =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_cons_creative_base.pkl') 
+	purch_base =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_purch_creative_base.pkl') 
+	
+	return [aware_rate, cons_rate, purch_rate, aware_base, cons_base, purch_base]
 
 
 def default_prediction():
@@ -19,53 +25,48 @@ def default_prediction():
 	'''
 	return pd.DataFrame({
 
-		#Product
-	    'Product_Achat': [0], 
-	    'Product_Android OS': [0], 
-	    'Product_Android Pay': [0], 
-	    'Product_Android Wear': [0], 
-	    'Product_Chromebook': [0],  
-	    'Product_Chromecast': [0], 
-	    'Product_Chromecast Audio': [0],  
-	    'Product_Daydream View': [0], 
-	    'Product_Digital Skills': [0], 
-	    'Product_Duo': [0],  
-	    'Product_Ellen Show': [0], 
-	    'Product_Feed': [0],  
-	    'Product_G Suite': [0], 
-	    'Product_GSA': [0], 
-	    'Product_Google Activate': [0],  
-	    'Product_Google Assistant': [0], 
-	    'Product_Google Cloud': [0], 
-	    'Product_Google Duo': [0], 
-	    'Product_Google Express': [0], 
-	    'Product_Google Home': [0], 
-	    'Product_Google Home Max': [0], 
-	    'Product_Google Home Mini': [0], 
-	    'Product_Google Photos': [0], 
-	    'Product_Google Play': [0], 
-	    'Product_Google Store': [0], 
-	    'Product_Google User Trust': [0], 
-	    'Product_Nexus': [0], 
-	    'Product_Pixel': [0], 
-	    'Product_Pixel 2': [0], 
-	    'Product_Pixelbook': [0], 
-	    'Product_Project Fi': [0], 
-	    'Product_Watercooler BCE': [0], 
-	    'Product_YouTube Music': [0], 
-	    'Product_YouTube Music/Emerging Artists': [0],  
-	    'Product_YouTube Red': [0], 
-	    'Product_YouTube TV': [0], 
-	    
-	    #Class Variables
-	    'Region_APAC': [0], 
-	    'Region_EMEA': [0], 
-	    'Region_North_America': [0], 
-	    'Platform_Mobile': [0], 
-	    'Platform_Desktop': [0], 
-	    'Video_Length_:06': [0], 
-	    'Video_Length_:15': [0], 
-	    'Video_Length_:30': [0], 
+		'north_america': [0], 
+	    'emea': [0], 
+	    'apac': [0], 
+	    'mobile': [0], 
+	    'desktop': [0], 
+	    's06': [0],
+	    's15': [0], 
+	    's30': [0],
+	       
+	    'pro_nexus': [0], 
+	    'pro_android_os': [0], 
+	    'pro_chromebook': [0], 
+	    'pro_chromecast_aud': [0],
+	    'pro_chromecast': [0], 
+	    'pro_google_play': [0], 
+	    'pro_youtube_red': [0],
+	    'pro_youtube_music': [0], 
+	    'pro_google_user': [0], 
+	    'pro_google_photos': [0],
+	    'pro_g_suite': [0], 
+	    'pro_pixel': [0], 
+	    'pro_daydream': [0], 
+	    'pro_android_pay': [0],
+	    'pro_google_home': [0], 
+	    'pro_gsa': [0], 
+	    'pro_google_assist': [0], 
+	    'pro_youtube_tv': [0],
+	    'pro_android_wear': [0], 
+	    'pro_fi': [0], 
+	    'pro_youtube': [0], 
+	    'pro_google_cloud': [0],
+	    'pro_google_express': [0], 
+	    'pro_digital_skills': [0], 
+	    'pro_feed': [0],
+	    'pro_google_home_mini': [0],
+	    'pro_duo': [0], 
+	    'pro_ellen': [0], 
+	    'pro_pixelbook': [0],
+	    'pro_google_duo': [0], 
+	    'pro_pixel_2': [0], 
+	    'pro_watercooler': [0],
+	    'pro_google_home_max': [0], 
 	  	
 	  	#Creative Elements
 	    'Real_World_animated': [0], 

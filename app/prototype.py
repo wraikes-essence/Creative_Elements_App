@@ -41,7 +41,7 @@ app.layout = html.Div([
         dcc.Dropdown(
             id='product',
             options=[
-                {'label': 'Achat', 'value': 'achat'},
+                #{'label': 'Achat', 'value': 'achat'},
                 {'label': 'Android OS', 'value': 'android_os'},
                 {'label': 'Android Pay', 'value': 'android_pay'},
                 {'label': 'Android Wear', 'value': 'android_wear'},
@@ -55,7 +55,7 @@ app.layout = html.Div([
                 {'label': 'Feed', 'value': 'feed'},
                 {'label': 'G Suite', 'value': 'g_suite'},
                 {'label': 'GSA', 'value': 'gsa'},
-                {'label': 'Google Activate', 'value': 'google_activate'},
+                #{'label': 'Google Activate', 'value': 'google_activate'},
                 {'label': 'Google Assistant', 'value': 'google_assistant'},
                 {'label': 'Google Cloud', 'value': 'google_cloud'},
                 {'label': 'Google Duo', 'value': 'google_duo'},
@@ -65,7 +65,7 @@ app.layout = html.Div([
                 {'label': 'Google Home Mini', 'value': 'google_home_mini'},
                 {'label': 'Google Photos', 'value': 'google_photos'},
                 {'label': 'Google Play', 'value': 'google_play'},
-                {'label': 'Google Store', 'value': 'google_store'},
+                #{'label': 'Google Store', 'value': 'google_store'},
                 {'label': 'Google User Trust', 'value': 'user_trust'},
                 {'label': 'Nexus', 'value': 'nexus'},
                 {'label': 'Pixel', 'value': 'pixel'},
@@ -73,6 +73,7 @@ app.layout = html.Div([
                 {'label': 'Pixelbook', 'value': 'pixelbook'},
                 {'label': 'Project Fi', 'value': 'fi'},
                 {'label': 'Watercooler BCE', 'value': 'water'},
+                {'label': 'YouTube', 'value': 'youtube'},
                 {'label': 'YouTube Music', 'value': 'youtube_music'},
                 {'label': 'YouTube Music/Emerging Artists', 'value': 'youtube_ea'},
                 {'label': 'YouTube Red', 'value': 'youtube_red'},
@@ -370,16 +371,28 @@ def update_graph(product, region, platform,
     y = _response(X_pred, models)
     
     return {
-            'data': [go.Bar(
-                x=['Awareness', 'Consideration', 'Purchase'],
-                y=y,
-                text=y,
-                textposition='auto',
-                name='Predictions',
-                marker=dict(
-                    color='rgb(58,200,225)'
+            'data': [
+                go.Bar(
+                    x=['Awareness', 'Consideration', 'Purchase'],
+                    y=y[0],
+                    text=y[0],
+                    textposition='auto',
+                    name='Predictions',
+                    marker=dict(
+                        color='rgb(58,200,225)'
+                    )
+                ), 
+                go.Bar(
+                    x=['Awareness', 'Consideration', 'Purchase'],
+                    y=y[1],
+                    text=y[1],
+                    textposition='auto',
+                    name='Predictions',
+                    marker=dict(
+                        color='rgb(225,200,225)'
+                    )
                 )
-            )],
+            ],
             'layout': go.Layout(
                 title= 'Creative Analysis: Rate Predictions',
                 showlegend=False,

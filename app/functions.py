@@ -5,49 +5,51 @@ from models import pull_models
 def _response(df, models):
     ##predictions = predict_proba(df)
 
-    y = [round(x.predict_proba(df)[0][1] * 100.0, 2) for x in models]
+    y_rate = [round(x.predict(df)[0] * 100.0, 2) for x in models[:3]]
+    y_base = [round(x.predict(df)[0] * 100.0, 2) for x in models[3:]]
 
-    return y
+    return [y_rate, y_base]
 
 
 def _product(df, param):
     _dict = {
-        'achat': 'Product_Achat',
-        'android_os': 'Product_Android OS',
-        'android_pay': 'Product_Android Pay',
-        'android_wear': 'Product_Android Wear',
-        'chromebook': 'Product_Chromebook',
-        'chromecast': 'Product_Chromecast',
-        'chromecast_audio': 'Product_Chromecast Audio',
-        'daydream': 'Product_Daydream View',
-        'digital': 'Product_Digital Skills',
-        'duo': 'Product_Duo',
-        'ellen': 'Product_Ellen Show',
-        'feed': 'Product_Feed',
-        'g_suite': 'Product_G Suite',
-        'gsa': 'Product_GSA',
-        'google_activate': 'Product_Google Activate',
-        'google_assistant': 'Product_Google Assistant',
-        'google_cloud': 'Product_Google Cloud',
-        'google_duo': 'Product_Google Duo',
-        'google_express': 'Product_Google Express',
-        'google_home': 'Product_Google Home',
-        'google_home_max': 'Product_Google Home Max',
-        'google_home_mini': 'Product_Google Home Mini',
-        'google_photos': 'Product_Google Photos',
-        'google_play': 'Product_Google Play',
-        'google_store': 'Product_Google Store',
-        'user_trust': 'Product_Google User Trust',
-        'nexus': 'Product_Nexus',
-        'pixel': 'Product_Pixel',
-        'pixel_2': 'Product_Pixel 2',
-        'pixelbook': 'Product_Pixelbook',        
-        'fi': 'Product_Project Fi',
-        'water': 'Product_Watercooler BCE',
-        'youtube_music': 'Product_YouTube Music',        
-        'youtube_ea': 'Product_YouTube Music/Emerging Artists', 
-        'youtube_red': 'Product_YouTube Red',
-        'youtube_tv': 'Product_YouTube TV'
+        #'achat': 'Product_Achat',
+        'android_os': 'pro_android_os',
+        'android_pay': 'pro_android_pay',
+        'android_wear': 'pro_android_wear',
+        'chromebook': 'pro_chromebook',
+        'chromecast': 'pro_chromecast',
+        'chromecast_audio': 'pro_chromecast_aud',
+        'daydream': 'pro_daydream',
+        'digital': 'pro_digital_skills',
+        'duo': 'pro_duo',
+        'ellen': 'pro_ellen',
+        'feed': 'pro_feed',
+        'g_suite': 'pro_g_suite',
+        'gsa': 'pro_gsa',
+        #'google_activate': 'Product_Google Activate',
+        'google_assistant': 'pro_google_assist',
+        'google_cloud': 'pro_google_cloud',
+        'google_duo': 'pro_google_duo',
+        'google_express': 'pro_google_express',
+        'google_home': 'pro_google_home',
+        'google_home_max': 'pro_google_home_max',
+        'google_home_mini': 'pro_google_home_mini',
+        'google_photos': 'pro_google_photos',
+        'google_play': 'pro_google_play',
+        #'google_store': 'Product_Google Store',
+        'user_trust': 'pro_google_user',
+        'nexus': 'pro_nexus',
+        'pixel': 'pro_pixel',
+        'pixel_2': 'pro_pixel_2',
+        'pixelbook': 'pro_pixelbook',        
+        'fi': 'pro_fi',
+        'water': 'pro_watercooler',
+        'youtube': 'pro_youtube',
+        'youtube_music': 'pro_youtube_music',        
+        'youtube_ea': 'pro_youtube_music', 
+        'youtube_red': 'pro_youtube_red',
+        'youtube_tv': 'pro_youtube_tv'
     }
 
     df[_dict[param]] = 1
@@ -57,34 +59,34 @@ def _product(df, param):
 
 def _region(df, param):
     if param == 'apac':
-        df['Region_APAC'] = 1
+        df['apac'] = 1
     elif param == 'emea':
-        df['Region_EMEA'] = 1
+        df['emea'] = 1
     else:
-        df['Region_North_America'] = 1
+        df['north_america'] = 1
 
     return df
 
 
 def _platform(df, param):
     if param == 'desktop': 
-        df['Platform_Desktop'] = 1
+        df['desktop'] = 1
     elif param == 'mobile':
-        df['Platform_Mobile'] = 1
+        df['mobile'] = 1
     else:
-        df['Platform_Desktop'] = 1
-        df['Platform_Mobile'] = 1
+        df['desktop'] = 1
+        df['mobile'] = 1
 
     return df
 
 
 def _video_length(df, param):
     if param == 'fifteen':
-        df['Video_Length_:15'] = 1
+        df['s15'] = 1
     elif param == 'thirty':
-        df['Video_Length_:30'] = 1
+        df['s30'] = 1
     else:
-        df['Video_Length_:06'] = 1
+        df['s06'] = 1
 
     return df
 
