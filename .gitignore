@@ -1,3 +1,5 @@
 ./misc
 *checkpoint*
 *cache*
+*.csv
+
