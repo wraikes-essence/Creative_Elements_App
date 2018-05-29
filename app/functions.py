@@ -5,10 +5,9 @@ from models import pull_models
 def _response(df, models):
     ##predictions = predict_proba(df)
 
-    y_rate = [round(x.predict(df)[0] * 100.0, 2) for x in models[:3]]
-    y_base = [round(x.predict(df)[0] * 100.0, 2) for x in models[3:]]
+    y_lift = [round(x.predict(df)[0] * 100.0, 2) for x in models[:3]]
 
-    return [y_rate, y_base]
+    return y_lift
 
 
 def _product(df, param):
@@ -58,17 +57,20 @@ def _product(df, param):
 
 
 def _region(df, param):
-    if param == 'apac':
-        df['apac'] = 1
-    elif param == 'emea':
-        df['emea'] = 1
-    else:
-        df['north_america'] = 1
+
+    _dict = {
+        'apac': 'apac',
+        'emea': 'emea',
+        'north_america': 'north_america'
+    }
+
+    df[_dict[param]] = 1
 
     return df
 
 
 def _platform(df, param):
+
     if param == 'desktop': 
         df['desktop'] = 1
     elif param == 'mobile':
@@ -81,6 +83,7 @@ def _platform(df, param):
 
 
 def _video_length(df, param):
+
     if param == 'fifteen':
         df['s15'] = 1
     elif param == 'thirty':
@@ -92,6 +95,7 @@ def _video_length(df, param):
 
 
 def _real_world(df, param):
+
     if param == 'real':
         df['Real_World_real world'] = 1
     elif param == 'both':
@@ -103,6 +107,7 @@ def _real_world(df, param):
 
 
 def _story(df, param):
+
     if param == 'no':
         df['Story_Driven_no'] = 1
     else:
@@ -112,6 +117,7 @@ def _story(df, param):
 
 
 def _event(df, param):
+
     if param == 'no':
         df['Event_no'] = 1
     else:
@@ -121,6 +127,7 @@ def _event(df, param):
 
 
 def _google_upfront(df, param):
+
     if param == 'no':
         df['Google_Logo_Upfront_Recode_Zero'] = 1
     else:
@@ -130,6 +137,7 @@ def _google_upfront(df, param):
 
 
 def _product_upfront(df, param):
+
     if param == 'no':
         df['Product_Logo_Upfront_Recode_Zero'] = 1
     else:
@@ -139,6 +147,7 @@ def _product_upfront(df, param):
 
 
 def _audio_upfront(df, param):
+
     if param == 'no':
         df['Audio_Mention_Upfront_Recode_Zero'] = 1
     else:
@@ -148,6 +157,7 @@ def _audio_upfront(df, param):
 
 
 def _no_of_visuals(df, param):
+
     if param == 'no':
         df['No_of_Visuals_Recode_Zero'] = 1
     else:
@@ -157,6 +167,7 @@ def _no_of_visuals(df, param):
 
 
 def _google_logo_50(df, param):
+
     if param == 'no':
         df['Google_Logo_50_no'] = 1
     else:
@@ -166,6 +177,7 @@ def _google_logo_50(df, param):
 
 
 def _product_logo_50(df, param):
+
     if param == 'no':
         df['Product_Logo_50_no'] = 1
     else:
@@ -175,6 +187,7 @@ def _product_logo_50(df, param):
 
 
 def _product_shot_50(df, param):
+
     if param == 'no':
         df['Product_Shot_50_no'] = 1
     else:
@@ -184,6 +197,7 @@ def _product_shot_50(df, param):
 
 
 def _text_end_card(df, param):
+
     if param == 'no':
         df['Text_on_End_Card_no'] = 1
     else:
@@ -193,6 +207,7 @@ def _text_end_card(df, param):
 
 
 def _demo(df, param):
+
     if param == 'no':
         df['Demo_no'] = 1
     else:
@@ -202,6 +217,7 @@ def _demo(df, param):
 
 
 def _front(df, param):
+
     if param == 'no':
         df['Front_Card_no'] = 1
     else:
@@ -211,6 +227,7 @@ def _front(df, param):
 
 
 def _pop_culture(df, param):
+
     if param == 'no':
         df['Pop_Culture_no'] = 1
     else:
@@ -220,6 +237,7 @@ def _pop_culture(df, param):
 
 
 def _music(df, param):
+
     if param == 'no':
         df['Music_no'] = 1
     else:
@@ -229,6 +247,7 @@ def _music(df, param):
 
 
 def _voice(df, param):
+
     if param == 'no':
         df['Voiceover_no'] = 1
     else:
@@ -238,12 +257,14 @@ def _voice(df, param):
 
 
 def _product_msgs(df, param):
-    if param == 'zero':
-        df['No_Product_Msgs_Recode_Zero'] = 1
-    elif param == 'one':
-        df['No_Product_Msgs_Recode_One'] = 1
-    else:
-        df['No_Product_Msgs_Recode_Two+'] = 1
+
+    _dict = {
+        'zero': 'No_Product_Msgs_Recode_Zero',
+        'one': 'No_Product_Msgs_Recode_One',
+        'two': 'No_Product_Msgs_Recode_Two+'
+    }
+
+    df[_dict[param]] = 1
 
     return df
 

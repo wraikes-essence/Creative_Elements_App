@@ -6,17 +6,12 @@ def pull_models():
 	'''
 	Load the pickled models for use.
 	'''
-	#KPI Rates
-	aware_rate =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_aware_creative_rate.pkl') 
-	cons_rate =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_cons_creative_rate.pkl') 
-	purch_rate =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_purch_creative_rate.pkl')
+	#KPI Lift
+	aware_lift =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_aware_creative_lift.pkl') 
+	cons_lift =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_cons_creative_lift.pkl') 
+	purch_lift =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_purch_creative_lift.pkl')
 
-	#KPI Baselines
-	aware_base =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_aware_creative_base.pkl') 
-	cons_base =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_cons_creative_base.pkl') 
-	purch_base =  joblib.load(r'C:\Users\william.raikes\Programming\Python\Creative_Elements_App\model_building\pickled_models\rf_purch_creative_base.pkl') 
-	
-	return [aware_rate, cons_rate, purch_rate, aware_base, cons_base, purch_base]
+	return [aware_lift, cons_lift, purch_lift]
 
 
 def default_prediction():

@@ -14,7 +14,7 @@ from functions import (_response, _product, _region,
                       _product_msgs)
 
 
-#Initial Variables
+#Initialized Variables
 models = pull_models()
 X = default_prediction()
 app = dash.Dash()
@@ -24,9 +24,12 @@ app.layout = html.Div([
     
 
     html.Div([
-        html.H1('Creative Rate Predictions App: Prototype'),
+        html.H1('Creative Brand Lift Predictions: Prototype App'),
+        
         html.P('''Welcome to the prototype web app for making pre-test 
-        rate predictions based on creative elements.'''),
+        rate predictions based on selective criteria and creative 
+        elements.'''),
+        
         dcc.Graph(
             id='main_graph'
         )
@@ -374,27 +377,17 @@ def update_graph(product, region, platform,
             'data': [
                 go.Bar(
                     x=['Awareness', 'Consideration', 'Purchase'],
-                    y=y[0],
-                    text=y[0],
+                    y=y,
+                    text=y,
                     textposition='auto',
                     name='Predictions',
                     marker=dict(
                         color='rgb(58,200,225)'
                     )
-                ), 
-                go.Bar(
-                    x=['Awareness', 'Consideration', 'Purchase'],
-                    y=y[1],
-                    text=y[1],
-                    textposition='auto',
-                    name='Predictions',
-                    marker=dict(
-                        color='rgb(225,200,225)'
-                    )
                 )
             ],
             'layout': go.Layout(
-                title= 'Creative Analysis: Rate Predictions',
+                #title= 'Creative Analysis: Rate Predictions',
                 showlegend=False,
                 yaxis=dict(
                    range=[-100, 100]
